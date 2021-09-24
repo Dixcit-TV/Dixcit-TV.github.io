@@ -1,0 +1,110 @@
+hr {
+	border: 1px solid;
+}
+
+.tm-font-medium {
+	font-size: 1.1rem;
+}
+
+.tm-100 {
+	width:100% !important;
+}
+
+#JobTitle {
+	border: 2px solid white;
+    padding-top: 5px;
+    border-radius: 15px;
+    margin-top: 15px;
+    background-color: #33ccff;
+	color: black;
+}
+
+#JobTitle h5 {
+	font-weight: bold;
+}
+
+.Button {
+	border: 2px solid white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    background-color: #33ccff77;
+	color: black;
+	font-weight: bold;
+}
+
+.Button:hover {
+    background-color: #ffffff77;
+	color: #33ccff;
+	text-decoration:none;
+	font-weight: bold;
+}
+
+.Button:visited {
+	color: black;
+	font-weight: bold;
+}
+
+.ButtonImg {
+	float:none !important;
+}
+
+div#ProjectList div {
+	width: 100%;
+	height: 300px;
+	background: lightslategray;
+	margin: 40px 0px;
+	padding: 20px;
+	border-radius: 20px;
+	border: 4px solid rgb(51 204 255 / 50%);
+	box-shadow: 10px 10px 10px 5px rgb(51 204 255 / 50%);
+}
+
+table.ProjectText tr:nth-of-type(1) td {
+	height:auto;
+	vertical-align: text-top;
+	text-align: justify;
+	max-height:90%;
+}
+
+table.ProjectText tr:nth-of-type(2) td {
+	max-height:10%;
+	vertical-align: bottom;
+}
+
+table.ProjectText h3 {
+	color: black;
+	font-weight: bold;
+}
+
+table.ProjectText tr td a {
+	text-align: right;
+    float: right;
+}
+
+.ProjectImg {
+	height: 100%;
+}
+
+div#ProjectList div:nth-child(2n) img
+{
+	float:right;
+}
+
+div#ProjectList div:nth-child(2n+1) img
+{
+	float:left;
+}
+
+table.ProjectText {
+	height: 100%;
+}
+
+div#ProjectList div:nth-child(2n) td
+{
+	padding-right: 5%;
+}
+
+div#ProjectList div:nth-child(2n+1) td
+{
+	padding-left: 5%;
+}
