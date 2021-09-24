@@ -34,7 +34,7 @@ hr {
 
 .Button:hover {
     background-color: #ffffff77;
-	color: #33ccff;
+	color: black;
 	text-decoration:none;
 	font-weight: bold;
 }
@@ -83,6 +83,7 @@ table.ProjectText tr td a {
 
 .ProjectImg {
 	height: 100%;
+	width: -webkit-fill-available;
 }
 
 div#ProjectList div:nth-child(2n) img
