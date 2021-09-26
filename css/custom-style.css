@@ -1,3 +1,12 @@
+.tm-content h1, .tm-content h2, .tm-content h3, .tm-content h4 {
+	color: #33ccff;
+}
+
+.tm-content b {
+	color: #33ccff;
+	font-weight: bold;
+}
+
 hr {
 	border: 1px solid;
 }
@@ -50,7 +59,7 @@ hr {
 
 div#ProjectList div {
 	width: 100%;
-	height: 300px;
+	height: 350px;
 	background: lightslategray;
 	margin: 40px 0px;
 	padding: 20px;
@@ -62,12 +71,13 @@ div#ProjectList div {
 table.ProjectText tr:nth-of-type(1) td {
 	height:auto;
 	vertical-align: text-top;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	text-align: justify;
 	max-height:90%;
 }
 
 table.ProjectText tr:nth-of-type(2) td {
-	max-height:10%;
 	vertical-align: bottom;
 }
 
@@ -83,7 +93,6 @@ table.ProjectText tr td a {
 
 .ProjectImg {
 	height: 100%;
-	width: -webkit-fill-available;
 }
 
 div#ProjectList div:nth-child(2n) img
@@ -98,6 +107,7 @@ div#ProjectList div:nth-child(2n+1) img
 
 table.ProjectText {
 	height: 100%;
+	width: -webkit-fill-available;
 }
 
 div#ProjectList div:nth-child(2n) td
