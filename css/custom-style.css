@@ -119,3 +119,8 @@ div#ProjectList div:nth-child(2n+1) td
 {
 	padding-left: 5%;
 }
+
+.VideoContent {
+	text-align:center;
+	width:100%;
+}
