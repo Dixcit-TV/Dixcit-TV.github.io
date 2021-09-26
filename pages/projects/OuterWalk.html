@@ -5,3 +5,15 @@
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/TT7pnFtVSV8" title="The Outer Walk trailer" frameborder="0" 
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+<div class="ProjectArticle">
+	<h3 class="tm-text-shadow">Introduction</h2>
+	<p class="mb-5">For Graphics Programming 2, after a semester of learning and implementing environment & normal mapping, phong & diffuse shading, shadow mapping, animation, particles, and basics of DX11 and the Physx API, we are tasked to create a vertical slice of a pre-existing or totally invented game. I then dicided to come up with my own idea: The Outer Walk.</p>
+	
+	<p class="mb-5">Over implementing a proper game level (like Bomberman, Overcooked-like, Prince of persia, etc...) with a begining and end, I wanted to focus on shaders and working with the GPU. I am a big fan of procedural generation and I recently came accross a videos and resources about procedural planet generation that seemed like a really interesting challenge.</p>
+	
+	<h3 class="tm-text-shadow">The sphere generation</h3>
+	
+	<p class="mb-5">Many ways can be found online to generate a sphere triangle mesh procedurally with variable tesselation; UV-sphere, Cube-sphere, Ico-sphere. I had to pick one for my endeavor and the Ico-spehere seemed like a pretty good candidate as the base Icosahedron mesh allows for a (relatively) even distribution of triangles after tesselation, triangles that are (almost) equilateral.</br>
+	Now that I had a starting shape, I needed to decide on a tesselation "algorithm". Considering 4 other courses on the side and a little over a month left, I decided to kill 2 birds with one stone and dive into the tesselation shader stage available in DX11 pipeline.</br>
+	DX11 tesselation stage allows to define a the edge and inner subdivision per triangle, I found out that subdividing the edge and inner triangle by the same number result in the "even distribution" I was looking for. From, I then needed was to bind my tesselation vertex list output to a vertex buffer to use for rendering. One draw-back I discovered from using the tesselation shader was the tesselation level limited to 64 subdisions, but it was definetly good enough for my experimentation.</p>
+</div>
