@@ -3,6 +3,7 @@
 	<div class="TechIconList"> 
 		<img src="../../img/CSharp_Icon.png" title="C#" alt="C#"/>
 		<img src="../../img/Unity_Icon.png" title="Unity" alt="Unity"/>
+		<img src="../../img/Perforce_icon.png" title="Perforce" alt="Perforce"/>
 		<img src="../../img/HackNPlan_Icon.png" title="Hack'N'Plan" alt="Hack'N'Plan"/>
 	</div>
 </header>
@@ -12,21 +13,26 @@
 </div>
 <div class="ProjectArticle">
 	<h3 class="tm-text-shadow">Introduction</h2>
-	<p class="mb-5">For Graphics Programming 2, after a semester of learning and implementing environment & normal mapping, phong & diffuse shading, shadow mapping, animation, particles, and basics of DX11 and the Physx API, we are tasked to create a vertical slice of a pre-existing or totally invented game. I then dicided to come up with my own idea: The Outer Walk.</p>
+	<p class="mb-5">In the second semester of our second year, we are being randomly assigned into <b>groups of 4 to 6 people</b> with our collegue from the Game Graphics and Production major (artists) to have a first hands-on experience in creating a vertical slice of a game as a team, following an <b>agile project management process.</b> During our year, the theme of the games was <b>Arcades</b>.<br/>
+	We spend a couple of weeks brainstorming and prototyping game ideas, then create the necessary technical and artistic documents and build our agile backlog and sprint boards. The projects lasts for <b>2 production sprints of 3 weeks and 1 polish sprint of 2 weeks</b> with weekly meetings with our teacher coordinators. We are each working <b>10hrs per week</b>.</p>
 	
-	<p class="mb-5">Over implementing a proper game level (like Bomberman, Overcooked-like, Prince of persia, etc...) with a begining and end, I wanted to focus on shaders and working with the GPU to learn by practicing. I am a big fan of procedural generation and I recently came accross a videos and resources about procedural planet generation that seemed like a really interesting challenge. The final result being a real-time planet generator using an IMGUI menu to control the generation parameters.</p>
+	<h3 class="tm-text-shadow">The Team and the Game</h3>
 	
-	<h3 class="tm-text-shadow">The sphere generation</h3>
+	<p class="mb-5">My group was constituted of <b>3 artists and 2 programmers</b> (including myself). After going through several ideas and weighted the pros and cons, and the feasability in the allocated time, we settled for a <b>3D dodging game based</b> in a Viking setup where a viking warrior <b>dodges the kitchen items, food and weapons</b> thrown by his angry wife. The goal of the game being to <b/>last as long as possible in an increasigly fast</b> game while <b>dodging damaging and harmful items and collecting life and buffing beers</b>.<br/>
+	The player has 5 lifes, each red highlighted items remove 1 life upon impact.<br/>
+	The purple items are active debufs that will slow the player or impair their movements.<br/>
+	Finally the gree items are beneficial items which will restore the player's health or provide him with a gauge that can be activated to cleanse debufs and become invincible.</p>
 	
-	<p class="mb-5">Many ways can be found online to generate a sphere triangle mesh procedurally with variable tesselation; UV-sphere, Cube-sphere, Ico-sphere. I had to pick one for my endeavor and the Ico-spehere seemed like a pretty good candidate as the base Icosahedron mesh allows for a (relatively) even distribution of triangles after tesselation, triangles that are (almost) equilateral.</br>
-	Now that I had a starting shape, I needed to decide on a tesselation "algorithm". Considering 4 other courses on the side and a little over a month left, I decided to kill 2 birds (lack of time + new knowledge) with one stone and dive into the tesselation shader stage available in DX11 pipeline.</br>
-	DX11 tesselation stage allows to define a the edge and inner subdivision per triangle, I found out that subdividing the edge and inner triangle by the same number result in the "even distribution" I was looking for. From there, what I needed was to bind my tesselation vertex list ouput to a vertex buffer to use for rendering in a future pass. One draw-back I discovered from using the tesselation shader was the tesselation level limited to 64 subdisions, but it was definetly good enough for my experimentation.</p>
+	<h3 class="tm-text-shadow">My role within the team</h3>
 	
-	<h3 class="tm-text-shadow">The landscape generation</h3>
+	<p class="mb-5">When we settled for our game idea, I've been involved in prototyping the camera behaviors and player movements withing the rounded arena. We needed to define a way for the camera to transition smoothly and confortably left and right when the player moves around. Also it was import that moving sideways meant that the character would properly follow the arena curvature.<br/>
+	We then prototyped and few objects and how we would handle the impacts.</b>
+	I was also involved in creating the <b>Tech Document</b> and setting up our <b>Perforce</b> structure.</p>
 	
-	<p class="mb-5">I had my sphere, the next step was to generate the landmass and oceans. A very common way to do so is by using noise and more specifically Perlin and Simplex noise due to their "smooth gradient" nature. Using a HLSL implementation of a simplex noise function, I created several noise layers that would each generate a different aspect of my planet terrain; a layer for the main land shape, one for the overal detailing and a final one for the mountains. Each layers are then added on top of each other to form the final planet. All this being done in the domain shader of our tesselation stage.</p>
+	<p class="mb-5">During production, I was assigned various tasks project wide. From finishing the implementation of the movement and camera setup and creating the <b>buff/debuff system<b/> allowing stacking, cleansing and invincibility, to setting up the <b>boss character's animation finite state machine to plug-in animations and states</b> or preparing the <b>UI flow and logic</b> for it to be ready for its design.<br/>
+	A lot of play-testing was needed to balance the throw rate and mechanics of the items and ensure that the whole setup feels fun and confortable for the players. Each members of the team was pushed to try out the game for a short perio of time and regularly to give their feedback and opinions.</p>
 	
-	<h3 class="tm-text-shadow">Shading & shadows & ocean</h3>
+	<p class="mb-5">Polish was spent on finishing balancing the game all together, add the logic to handle sounds, music and particle effects and making sure everything is in order for the release.</p>
 	
-	<p class="mb-5">The final step was to add some shading to this grey planet. For this I stored each vertices height and steepness. I the used those values to blend shore, land and mountains colors together and try to give the planet a natural look. Shadows were added using shadow mapping. And as a final touch, followed  the idea to create my "oceans" shading as a post processing effect that is traced on top of the final planet mesh, with waves added with triplanar normal mapping.</p>
+	<p class="mb-5">Aside from the purely programming aspect of the project, I was in charge of <b>merging our stable developement branch in our main branch</b> and was also available for our artists to help out with technical questions around Unity and Perforce.</p>
 </div>
