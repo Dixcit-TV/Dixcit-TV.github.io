@@ -1,9 +1,9 @@
 <header class="mb-4">
 	<h2 class="tm-text-shadow">The Outer Walk - <i><small><a href="https://github.com/Dixcit-TV/The-Outer-Walk" target="_blank">Github</a></small></i></h2>
 	<div class="TechIconList"> 
-		<img src="../../img/CPP_Icon.png"/>
-		<img src="../../img/DX11_Icon.png"/>
-		<img src="../../img/Physx_Icon.png"/>
+		<img src="../../img/CPP_Icon.png" title="C++" alt="C++"/>
+		<img src="../../img/DX11_Icon.png" title="DirectX 11" alt="DirectX 11"/>
+		<img src="../../img/Physx_Icon.png" title="NVidia Physx" alt="NVidia Physx"/>
 	</div>
 </header>
 <div class="VideoContent">
@@ -18,8 +18,8 @@
 	
 	<h3 class="tm-text-shadow">The sphere generation</h3>
 	
-	<p class="mb-5">Many ways can be found online to generate a sphere triangle mesh procedurally with variable tesselation; UV-sphere, Cube-sphere, Ico-sphere. I had to pick one for my endeavor and the Ico-spehere seemed like a pretty good candidate as the base Icosahedron mesh allows for a (relatively) even distribution of triangles after tesselation, triangles that are (almost) equilateral.</br>
-	Now that I had a starting shape, I needed to decide on a tesselation "algorithm". Considering 4 other courses on the side and a little over a month left, I decided to kill 2 birds (lack of time + new knowledge) with one stone and dive into the tesselation shader stage available in DX11 pipeline.</br>
+	<p class="mb-5">Many ways can be found online to generate a sphere triangle mesh procedurally with variable tesselation; UV-sphere, Cube-sphere, Ico-sphere. I had to pick one for my endeavor and the Ico-spehere seemed like a pretty good candidate as the base Icosahedron mesh allows for a (relatively) even distribution of triangles after tesselation, triangles that are (almost) equilateral.<br/>
+	Now that I had a starting shape, I needed to decide on a tesselation "algorithm". Considering 4 other courses on the side and a little over a month left, I decided to kill 2 birds (lack of time + new knowledge) with one stone and dive into the tesselation shader stage available in DX11 pipeline.<br/>
 	DX11 tesselation stage allows to define a the edge and inner subdivision per triangle, I found out that subdividing the edge and inner triangle by the same number result in the "even distribution" I was looking for. From there, what I needed was to bind my tesselation vertex list ouput to a vertex buffer to use for rendering in a future pass. One draw-back I discovered from using the tesselation shader was the tesselation level limited to 64 subdisions, but it was definetly good enough for my experimentation.</p>
 	
 	<h3 class="tm-text-shadow">The landscape generation</h3>
