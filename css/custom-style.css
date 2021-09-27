@@ -137,3 +137,8 @@ div#ProjectList div:nth-child(2n+1) td
 .TechIconList img {
 	max-height: 48px;
 }
+
+div#MainContent a {
+    text-decoration: underline;
+    color: mediumturquoise;
+}
