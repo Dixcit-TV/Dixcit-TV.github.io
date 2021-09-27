@@ -32,24 +32,29 @@ hr {
 	font-weight: bold;
 }
 
+div#MainContent a {
+    text-decoration: underline;
+    color: mediumturquoise;
+}
+
 .Button {
 	border: 2px solid white;
     padding: 5px 15px;
     border-radius: 15px;
     background-color: #33ccff77;
-	color: black;
+	color: black !important;
 	font-weight: bold;
 }
 
 .Button:hover {
     background-color: #ffffff77;
-	color: black;
-	text-decoration:none;
+	color: black !important;
+	text-decoration:none !important;
 	font-weight: bold;
 }
 
 .Button:visited {
-	color: black;
+	color: black !important;
 	font-weight: bold;
 }
 
@@ -136,9 +141,4 @@ div#ProjectList div:nth-child(2n+1) td
 
 .TechIconList img {
 	max-height: 48px;
-}
-
-div#MainContent a {
-    text-decoration: underline;
-    color: mediumturquoise;
 }
