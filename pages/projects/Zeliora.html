@@ -14,7 +14,7 @@
 	<h3 class="tm-text-shadow">Dungeon generation</h3>
 	
 	<p class="mb-5">The core of this project was to create a somewhat interesting random dungeon in realtime that was fully explorable, had different rooms and corridors with enemies and a few destructible items.<br/>
-	The base algorithm for the dungeon is </b>based on technique used by Phigames' title TinyKeep</b>. I picked that algorithm as I found it was giving nice results in terms of room spacing, size differences and the shape of the overall dungeon could be fairly easily controlled.</p>
+	The base algorithm for the dungeon is <b>based on technique used by Phigames' title TinyKeep</b>. I picked that algorithm as I found it was giving nice results in terms of room spacing, size differences and the shape of the overall dungeon could be fairly easily controlled.</p>
 	
 	<p class="mb-5">Due to time constraint (and becasue I couldn't fully grasp it then) <b>I swapped Delaunay's graph triangulation for a more naive approach</b> in which I process each graph nodes one by one and trace an edge between the current node and all the other ones if and only if the new edges doesn't already exist (undirected graph) and does not intersect an existing edge. It's not a perfect solution but was surely good enough.</p>
 	
