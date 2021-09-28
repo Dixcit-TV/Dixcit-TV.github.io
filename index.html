@@ -422,8 +422,6 @@ http://www.tooplate.com/view/2102-constructive
 				
 				$(".ProjectBtn").click(function(e){
 					e.preventDefault();
-					
-					$("#ProjectMainContent").hide();
 			
 					var projectFolder = "./pages/projects/";		
 
@@ -432,6 +430,7 @@ http://www.tooplate.com/view/2102-constructive
 					
 					if (detailPageName != "#")
 					{
+						$("#ProjectMainContent").hide();
 						var contentFile = projectFolder + detailPageName;
 						$(detailContent).fadeIn(1000);
 						$(detailContent).load(contentFile);
