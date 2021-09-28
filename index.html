@@ -428,9 +428,14 @@ http://www.tooplate.com/view/2102-constructive
 					var projectFolder = "./pages/projects/";		
 
 					var detailContent = $("#ProjectDetailContent");
-					var contentFile = projectFolder + $(this).attr("href");
-					$(detailContent).fadeIn(1000);
-					$(detailContent).load(contentFile);
+					var detailPageName = $(this).attr("href");
+					
+					if (detailPageName != "#")
+					{
+						var contentFile = projectFolder + detailPageName;
+						$(detailContent).fadeIn(1000);
+						$(detailContent).load(contentFile);
+					}
 				});	 
       		}	      	
 		});
