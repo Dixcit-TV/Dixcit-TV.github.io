@@ -10,6 +10,14 @@
 	
 	<p class="mb-5">As final project, I then merged both software and hardware rasterizer into one single project with the ability to switch between both setups at runtime (and "seamlessly").</p>
 	
+	<h3 class="tm-text-shadow">The challenges</h2>
+	
+	<p class="mb-5">First of all the main, requirement was to have only 1 renderer, calling the project draw calls according to the chosen rasterizers, so having one renderer for each was out of the question.</br>
+	Then another big challenge was that both rasterizers shares quite of lot of data and structures; cameras, textures, meshes, etc... But also need different resources to make use of it, especially the hardware rasterizer requiring all the DX11 objects and handles. I didn't need to extra resources eating up memory if they were not going to be used at all with the current rasterizer. I then created a resource (un-)loading functions that are called on the render, meshes and textures when the switch occurs, and will either load or unload all the extra resources.</br>
+	Another aspect to solve was that the sofware rasterizer is built as a Right-Handed system but DX11 uses a Left-Handed system. To use the same camera for both cases required to convert between system at the moment of the switch. It was done by re-calculating the correct projection matrix and flipping the camera controls and ONB.</p>
+	
+	<p class="mb-5">Transparency on a software rasterizer was also something that we didn't cover but I found it a shame to have it on one side and not the other. Re-analysing my course content on how transparency work theoretically (and on DX11) I tried to integrate it to my software rasterizer. It turned out great and required a surpisingly low amount of code change.</p>
+	
 	<h3 class="tm-text-shadow">What can these rasterizers do?</h2>
 	
 	<p>The rasterizers provide the following features:</p>
@@ -23,4 +31,7 @@
 		<li>Filtering (Point, Linear & Anisotropic) <i>- Hardware Only</i></li>
 		<li>Dynamic camera (UE4-like controls)</li>
 	</ul>
+	
+	<img src="../../img/Rasterizer_Software_Scene.png" title="Software Rasterizer" alt="Software Rasterizer" width="40%" style="margin:10px"/>
+	<img src="../../img/Rasterizer_Hardware_Scene.png" title="Hardware Rasterizer" alt="Hardware Rasterizer" width="40%" style="margin:10px"/>
 </div>
