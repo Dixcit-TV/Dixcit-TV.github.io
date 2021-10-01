@@ -269,7 +269,7 @@ footer a { color: white; }
   .tm-section { margin-right: auto; }
   
   .footer-link a img {
-		height: 48px;
+		height: 48px !important;
 	}
 }
 
@@ -295,11 +295,11 @@ footer a { color: white; }
     }
 	
 	.footer-link {
-		margin: 50px 30px;
+		margin: 50px 30px !important;
 	}
 	
 	.footer-link a img {
-		height: 48px;
+		height: 48px !important;
 	}
 }
 
@@ -320,22 +320,22 @@ footer a { color: white; }
   
   div#ProjectList
   {
-	text-align: center;
+	text-align: center !important;
   }
   
   div#ProjectList img
   {
-		float:none;
+		float:none !important;
   }
   
   div#ProjectList td
   {
-		padding: 5% 0 0 0;
+		padding: 5% 0 0 0 !important;
   }
   
   .ProjectImg {
-		max-width: 100%;
-		max-height: 350px;
+		max-width: 100% !important; 
+		max-height: 350px !important;
   }
 }
 
