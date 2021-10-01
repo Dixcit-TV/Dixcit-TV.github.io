@@ -25,9 +25,9 @@
 
 	<p><b>A* (blue) vs Theta* (Green)</b></p>
 	
-	<img src="https://github.com/Dixcit-TV/Theta-Pathfinding/blob/main/images/AStarvsThetaStar.png"/>
+	<img src="https://raw.githubusercontent.com/Dixcit-TV/Theta-Pathfinding/main/images/AStarvsThetaStar.png"/>
 	<br/>
-	<img src="https://github.com/Dixcit-TV/Theta-Pathfinding/blob/main/images/AStarvsThetaStar2.png"/>
+	<img src="https://raw.githubusercontent.com/Dixcit-TV/Theta-Pathfinding/main/images/AStarvsThetaStar2.png"/>
 	
 	<br/><br/>
 	<h4>Line of Sight and Bresenham's line algorithm</h4>
@@ -36,16 +36,16 @@
 
 	This algorithm draws a straight line by moving 1 unit (or grid cell) in one axis (x axis if x2 - x1 > y2 - y1, y otherwise) and uses the slope error accumulated through each step to determine if a similar jump in another axis is required. The process is repeated until the destination is reached and allow us to only check the node as close as possible to the line. In the case of Theta*, we can check if each step jump leads to an obstructed grid node, if it does the line expansion can be stoped and the line of sight is determined invalid.<p>
 
-	<img src="https://github.com/Dixcit-TV/Theta-Pathfinding/blob/main/images/Bresenham's%20line%20algorithm%20-%20Wikipedia.png" title="Wikipedia - Bresenham's line algorithm" alt="Wikipedia - Bresenham's line algorithm"/>
+	<img src="https://raw.githubusercontent.com/Dixcit-TV/Theta-Pathfinding/main/images/Bresenham's%20line%20algorithm%20-%20Wikipedia.png" title="Wikipedia - Bresenham's line algorithm" alt="Wikipedia - Bresenham's line algorithm"/>
 
 	<p class="mb-5">One last consideration I needed to take into account is that Bresenham's line algorithm gives an approximation and some cells may be "missed" when a jumping in both x and y axis (i.e. only (x+1, y+1) will be checked and not (x+1, y) or (x, y+1)), [Bresenham-based supercover line algorithm](http://eugen.dedu.free.fr/projects/bresenham/) takes care of these cases by remembering the error amount of the previous step and uses it to decide if neighbor cells need to be checked.</p>
 
 	<p>Theta* path using Bresenham, we can see some invalid corners (crossing blue tiles) are still counted as valid.</p>
-	<img src="https://github.com/Dixcit-TV/Theta-Pathfinding/blob/main/images/Bresenham.png"/>
+	<img src="https://raw.githubusercontent.com/Dixcit-TV/Theta-Pathfinding/main/images/Bresenham.png"/>
 	<br/>
 	
 	<p>Theta* path using Bresenham - Supercover, the path doesn't intersect with any walls (blue tiles) anymore.</p>
-	<img src="https://github.com/Dixcit-TV/Theta-Pathfinding/blob/main/images/Bresenham_Supercover.png"/>
+	<img src="https://raw.githubusercontent.com/Dixcit-TV/Theta-Pathfinding/main/images/Bresenham_Supercover.png"/>
 
 	<br/><br/>
 	<h3>What about A* with post processing path smoothing?</h3>
@@ -55,16 +55,16 @@
 	The following images shows the comparison between the final path of A* + PS and Theta* using the same setup as the previous A*, Theta* comparison. The smoothing algorithm is counted in the timing and is done using <b>Bresenham-based supercover line algorithm</b>.</p>
 
 	<p><b>A*</b></p>
-	<img src="https://github.com/Dixcit-TV/Theta-Pathfinding/blob/main/images/Astar.png"/>
+	<img src="https://raw.githubusercontent.com/Dixcit-TV/Theta-Pathfinding/main/images/Astar.png"/>
 	<br/>
 	
 	<p><b>A* + SP</b></p>
-	<img src="https://github.com/Dixcit-TV/Theta-Pathfinding/blob/main/images/AStar_Smoothed.png"/>
+	<img src="https://raw.githubusercontent.com/Dixcit-TV/Theta-Pathfinding/main/images/AStar_Smoothed.png"/>
 	<br/>
 	
 	<p><b>A* + SP (blue) vs Theta* (Green)</b></p>
-	<img src="https://github.com/Dixcit-TV/Theta-Pathfinding/blob/main/images/AStar_SmoothedvsThetaStar.png"/>
-	<img src="https://github.com/Dixcit-TV/Theta-Pathfinding/blob/main/images/AStar_SmoothedvsThetaStar2.png"/>
+	<img src="https://raw.githubusercontent.com/Dixcit-TV/Theta-Pathfinding/main/images/AStar_SmoothedvsThetaStar.png"/>
+	<img src="https://raw.githubusercontent.com/Dixcit-TV/Theta-Pathfinding/main/images/AStar_SmoothedvsThetaStar2.png"/>
 
 	<br/><br/>
 	<h3>Conclusion</h3>
