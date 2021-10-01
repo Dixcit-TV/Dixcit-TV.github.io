@@ -145,6 +145,7 @@ div#ProjectList div:nth-child(2n+1) td
 }
 
 .footer-link a img {
-    height: 96px;
-	margin: 0px 10px;
+    height: 64px;
+    margin: 0px 10px;
+    filter: drop-shadow(2px 4px 6px black);
 }
