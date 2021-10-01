@@ -257,7 +257,7 @@ address { font-size: 1rem; }
 
 .footer-link {
     margin: 50px;
-    padding: 5px 20px;
+    padding: 10px 0px;
     background-color: white;
     border-radius: 15px;
     border: 5px solid rgb(51 204 255 / 50%);
