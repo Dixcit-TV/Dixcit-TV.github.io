@@ -266,8 +266,6 @@ address { font-size: 1rem; }
     border: 5px solid rgb(51 204 255 / 50%);
 }
 
-.footer-link.relative { position: relative; }
-
 footer a { color: white; }
 
 @media (max-width: 1800px) {
@@ -387,11 +385,6 @@ footer a { color: white; }
 
 @media (max-width: 600px) {
     .tm-contact-box-pad { padding: 30px 25px; }
-
-    .footer-link {      
-      margin: 0 auto;
-      width: 90%;
-    }
 }
 
 @media (max-width: 500px), (max-width: 809px) and (min-width: 767px) {
