@@ -289,9 +289,9 @@ http://www.tooplate.com/view/2102-constructive
 					</section>		
 				</div>	<!-- .tm-content -->							
 				<footer class="footer-link">
-					<p class="tm-copyright-text">Copyright &copy; 2018 Constructive Co. Ltd. 
-                    
-                    - Design: Tooplate</p>
+					<a href="mailto:thomasvincent0495@gmail.com" target="_blank"><img src="./img/Email.png" title="Email Address" alt="Email Address"/></a> 
+					<a href="https://github.com/Dixcit-TV" target="_blank"><img src="./img/Github.png" title="Github Repositories" alt="Github Repositories"/></a>
+					<a href="https://www.linkedin.com/in/thomas-v-aaa720163/" target="_blank"><img src="./img/LinkedIn.png" title="LinkedIn Profile" alt="LinkedIn Profile"/></a>
 				</footer>
 			</div>	<!-- row -->			
 		</div>
@@ -318,8 +318,6 @@ http://www.tooplate.com/view/2102-constructive
 		    	
 		    	var currentNavItem = $(this);
 		    	changePage(currentNavItem);
-		    	
-		    	setupFooter();
 
 		    	// Hide the nav on mobile
 		    	$("#tmSideBar").removeClass("show");
@@ -354,29 +352,6 @@ http://www.tooplate.com/view/2102-constructive
 			$("#tmMainNavToggle").on("click", function(){
 				$(".sidebar").toggleClass("show");
 			});
-  		}
-
-  		// If there is enough room, stick the footer at the bottom of page content.
-  		// If not, place it after the page content
-  		function setupFooter() {
-  			
-  			var padding = 100;
-  			var footerPadding = 40;
-  			var mainContent = $("section"+currentPageID);
-  			var mainContentHeight = mainContent.outerHeight(true);
-  			var footer = $(".footer-link");
-  			var footerHeight = footer.outerHeight(true);
-  			var totalPageHeight = mainContentHeight + footerHeight + footerPadding + padding;
-  			var windowHeight = $(window).height();		
-
-  			if(totalPageHeight > windowHeight){
-  				$(".tm-content").css("margin-bottom", footerHeight + footerPadding + "px");
-  				footer.css("bottom", footerHeight + "px");  			
-  			}
-  			else {
-  				$(".tm-content").css("margin-bottom", "0");
-  				footer.css("bottom", "20px");  				
-  			}  			
   		}
 		
 		function projectPageSetup() {
@@ -422,12 +397,6 @@ http://www.tooplate.com/view/2102-constructive
 		     	// Setup Carousel, Nav, and Nav Toggle
 			    setupNav();
 			    setupNavToggle();
-			    setupFooter();
-
-			    // Resize Carousel upon window resize
-			    $(window).resize(function() {
-			    	setupFooter();
-			    });
 				
 				$(".ProjectBtn").click(function(e){
 					e.preventDefault();

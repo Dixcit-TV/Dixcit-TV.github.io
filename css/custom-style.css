@@ -143,3 +143,8 @@ div#ProjectList div:nth-child(2n+1) td
 .TechIconList img {
 	max-height: 48px;
 }
+
+.footer-link a img {
+    height: 96px;
+	margin: 0px 10px;
+}
