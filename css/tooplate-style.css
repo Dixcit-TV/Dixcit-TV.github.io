@@ -267,6 +267,10 @@ footer a { color: white; }
 
 @media (max-width: 1800px) {
   .tm-section { margin-right: auto; }
+  
+  .footer-link a img {
+		height: 48px;
+	}
 }
 
 @media (max-width: 1724px) {
@@ -289,6 +293,10 @@ footer a { color: white; }
     .sidebar {
       padding: 60px 30px;
     }
+	
+	.footer-link {
+		margin: 50px 30px;
+	}
 }
 
 @media (max-width: 1340px) {
@@ -304,6 +312,26 @@ footer a { color: white; }
       flex: 0 0 100%;
       max-width: 100%;
       margin-bottom: 30px;
+  }
+  
+  div#ProjectList
+  {
+	text-align: center;
+  }
+  
+  div#ProjectList img
+  {
+		float:none;
+  }
+  
+  div#ProjectList td
+  {
+		padding: 5% 0 0 0;
+  }
+  
+  .ProjectImg {
+		max-width: 100%;
+		max-height: 350px;
   }
 }
 
