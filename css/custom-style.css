@@ -149,3 +149,7 @@ div#ProjectList div:nth-child(2n+1) td
     margin: 0px 10px;
     filter: drop-shadow(2px 4px 6px black);
 }
+
+.tm-MainContent img {
+	max-width: 100%;
+}
