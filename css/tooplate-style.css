@@ -295,6 +295,7 @@ footer a { color: white; }
     }
 	
 	.footer-link {
+		height: 48px;
 		margin: 50px 30px;
 	}
 }
