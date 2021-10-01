@@ -280,6 +280,10 @@ footer a { color: white; }
     margin: 20px 0 35px 0;
     padding-right: 10px;
   }
+  
+  	.footer-link {
+		margin: 50px 30px !important;
+	}
 
   .tm-content { padding: 50px 5%; }
 }
@@ -293,10 +297,6 @@ footer a { color: white; }
     .sidebar {
       padding: 60px 30px;
     }
-	
-	.footer-link {
-		margin: 50px 30px !important;
-	}
 	
 	.footer-link a img {
 		height: 48px !important;
