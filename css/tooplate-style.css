@@ -295,8 +295,11 @@ footer a { color: white; }
     }
 	
 	.footer-link {
-		height: 48px;
 		margin: 50px 30px;
+	}
+	
+	.footer-link a img {
+		height: 48px;
 	}
 }
 
