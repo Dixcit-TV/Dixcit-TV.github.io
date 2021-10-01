@@ -7,12 +7,12 @@
 	</div>
 </header>
 <div class="ProjectArticle">
-	<h3 class="tm-text-shadow">Introduction</h3>
+	<h3>Introduction</h3>
 	<p>The goal of this project was to build a tiny 2D game enjoying applying known Game Programming patterns such as entity-component, command, service locator or observer pattern.</br>
 	In turns, I needed to program the old school QBert game using my engine.</p>
 	
 	<br/><br/>
-	<h3 class="tm-text-shadow">Component Base</h3>
+	<h3>Component Base</h3>
 	
 	<p>The game entities within the engine are built around a GameObject class, not inheritable, that serves as a container class to tie up all components that will constitute the game entity.</p>
 	
@@ -28,7 +28,7 @@
 	<p>A GameObject will accept anything inheriting the IComponent interface, we can go then one step further and add components inheriting from other components providing good encapsulation for behaviors.</p>
 	
 	<br/><br/>
-	<h3 class="tm-text-shadow">Event based communication (Observer pattern)</h3>
+	<h3>Event based communication (Observer pattern)</h3>
 	
 	<p>On important part of the engine I created is the way components/gameobjects talk to each other. Component that work tightly together can keep a reference to each other and try to find each other through their parent GameObject but it add strong coupling to their implementation and it gets trickier (or more expansive) when they have to find a component on another GameObject, somewhere else, at runtime.
 	I decide to create generic <b>Event<></b> that anyone or anything can (un)register to. When invoked, it calls all the registered function. I implemented it that way with <b>C# delegate</b> or <b>UnityEvent<></b> as I find them light and handy to send out a batch of callbacks.</p>
@@ -54,7 +54,7 @@
 	Still can come at a cost as non-unregistered listeners to those events may create memory leaks or crash if bound to destroyed objects. It's something that I found fairly powerful but still need to be careful with.</p>
 	
 	<br/><br/>
-	<h3 class="tm-text-shadow">Resource loading as a Service</h3>
+	<h3>Resource loading as a Service</h3>
 	
 	<p>To be fair the design came from using the Game Engine from my Graphics course but I liked the idea and find it really practical.<br/>
 	The system comes down to having one generic Resource manager class that will store, give access and load all resources needed. To do so it will register <b>loaders</b> which will each handle their own resource type and automatically use the correct one when the user request a resource and cache the data for later use.</p>
@@ -74,12 +74,12 @@
 	<img src="https://user-images.githubusercontent.com/76394390/120940891-d9632880-c71f-11eb-9c69-6d2fa3adb65b.png"/>
 	
 	<br/><br/>
-	<h3 class="tm-text-shadow">Scene based</h3>
+	<h3>Scene based</h3>
 	
 	<p>The game logic is built around a single SceneManager that holds all the existing Scenes objects and allow to swap between them. A scene has for single purpose to manage all the game objects that need to "work together" but game objects cannot communicate between scenes. The scene allows 3 Events to handle GameObject manmagement when it is first initialized or when it is (de)activated (scene change).</p>
 	
 	<br/><br/>
-	<h3 class="tm-text-shadow">The GameMode supervisor</h3>
+	<h3>The GameMode supervisor</h3>
 	
 	<p>Another idea that came to me from Unreal (well what I broadly assumed was the concept there), is to allow for a custom made (optional) GameMode implementation to allow the user to supervise their own overall game logic, states, etc...
 	As the scenes are isolated from each other, it is difficult to send data around, that's where the GameMode comes in as it lives as long as the game does. The engine provides a simple GameMode interface that can be inherited to implement one specifically for the current game built:</p>
@@ -87,7 +87,7 @@
 	<img src="https://user-images.githubusercontent.com/76394390/120941411-f2210d80-c722-11eb-8008-a5723503ec49.png"/>
 	<img src="https://user-images.githubusercontent.com/76394390/120941402-e5041e80-c722-11eb-9152-9129761612b3.png"/>
 	
-	<h3 class="tm-text-shadow">Resources</h3>
+	<h3>Resources</h3>
 	
 	<ul>
 		<li>

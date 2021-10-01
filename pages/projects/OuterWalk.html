@@ -11,32 +11,32 @@
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 <div class="ProjectArticle">
-	<h3 class="tm-text-shadow">Introduction</h3>
+	<h3>Introduction</h3>
 	<p class="mb-5">For Graphics Programming 2, after a semester of learning and implementing <b>environment & normal mapping, phong & diffuse shading, shadow mapping, animation, particles, and basics of DX11 and the Physx API</b>, we are tasked to create a vertical slice of a pre-existing or totally invented game using the <b>DAE provided Overlord Engine</b>. I then decided to come up with <b>my own idea: The Outer Walk</b>.</p>
 	
 	<p class="mb-5">Over implementing a proper game level (like Bomberman, Overcooked-like, Prince of persia, etc...) with a begining and end, I <b>wanted to focus on shaders and working with the GPU</b> to learn by practicing. I am a big fan of procedural generation and I recently came accross a videos and resources about procedural planet generation that seemed like a really interesting challenge. The final result being a <b>real-time planet generator</b> using an IMGUI menu to control the generation parameters.</p>
 	
-	<h3 class="tm-text-shadow">The sphere generation</h3>
+	<h3>The sphere generation</h3>
 	
 	<p class="mb-5">Many ways can be found online to generate a sphere triangle mesh procedurally with variable tesselation; <b>UV-sphere, Cube-sphere, Ico-sphere</b>. I had to pick one for my endeavor and the <b>Ico-spehere</b> seemed like a pretty good candidate as the <b>base Icosahedron mesh</b> allows for a (relatively) <b>even distribution</b> of triangles after tesselation, triangles that are (almost) <b>equilateral</b>.<br/>
 	Now that I had a starting shape, I needed to decide on a tesselation "algorithm". Considering 4 other courses on the side and a little over a month left, I decided to kill 2 birds (lack of time + new knowledge) with one stone and <b>dive into the tesselation shader</b> stage available in DX11 pipeline.<br/>
 	DX11 tesselation stage allows to define a the <b>edge and inner subdivision</b> per triangle, I found out that subdividing the edge and inner triangle by the same number result in the "even distribution" I was looking for. From there, what I needed was to <b>bind my tesselation vertex list ouput to a vertex buffer</b> to use for rendering in a future pass. One draw-back I discovered from using the tesselation shader was the tesselation level <b>limited to 64 subdisions</b>, but it was definetly good enough for my experimentation.</p>
 	
-	<h3 class="tm-text-shadow">The landscape generation</h3>
+	<h3>The landscape generation</h3>
 	
 	<p class="mb-5">I had my sphere, the next step was to generate the landmass and oceans. A very common way to do so is by using noise and more specifically <b>Perlin and Simplex noise</b> due to their "smooth gradient" nature. Using a HLSL implementation of a simplex noise function, I created <b>several noise layers</b> that would each generate a different aspect of my planet terrain; a layer for the main land shape, one for the overal detailing and a final one for the mountains. Each layers are then added on top of each other to form the final planet. All this being done in the domain shader of our tesselation stage.</p>
 	
-	<h3 class="tm-text-shadow">Shading & shadows & ocean</h3>
+	<h3>Shading & shadows & ocean</h3>
 	
 	<p class="mb-5">The final step was to add some shading to this grey planet. For this I stored each vertices <b>height and steepness</b>. I the used those values to <b>blend shore, land and mountains colors</b> together and try to give the planet a natural look. Shadows were added using <b>shadow mapping</b>. And as a final touch, followed the idea to create my <b>"oceans" shading as a post processing effect</b> that is traced on top of the final planet mesh, with <b>waves added with triplanar normal mapping</b>.</p>
 	
-	<h3 class="tm-text-shadow">The planet physics and collider</h3>
+	<h3>The planet physics and collider</h3>
 	
 	<p class="mb-5">While looking into how to <b>generate a collider</b> using the Physics API, so my character could walk on it, I discovered they provide a tool call <b>height fields</b> which would fit perfectly terrains and would provide an efficient result. The problem was that I had <b>no idea how I could use height fields on a spherical terrain</b>. Plan B was then to <b>create a triangleMesh</b> using the vertices I was getting back from the GPU. Using a <b>staging buffer</b> I copied my vertices in a vector that I then fed to the <b>PhysX cooking API</b>. I worked well physics wise, my character was properly stepping around, not clipping through... Performance wise I got a nice drop from 2k to 300fps which I suppose was to be expected but still <b>keeping in mind that I could probably find a more efficient solution</b>.<br/>
 	Next I gave each of my planets a <b>random gravity and rotation</b>, which is fed to the character has it has to abide by it.<br/><br/>
 	<b>Fun note:</b> The Overlord Engine we were provided with came with some of the PhysX API setup but not the PhysX Cooking DLL I needed to generate my planet collider. The only way I found to get that missing DLL was to seek the PhysX 3.4 sources, open it in Visual Studio 19, <b>FIX THE BUNCH OF COMPILATION ERRORS DUE TO A NEWER VS COMPILER VERSION</b> and after a few hours of struggle could finally get what I want.</p>
 	
-	<h3 class="tm-text-shadow">Resources</h3>
+	<h3>Resources</h3>
 	
 	<ul>
 		<li>
