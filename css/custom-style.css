@@ -141,6 +141,7 @@ div#ProjectList div:nth-child(2n+1) td
 .TechIconList {
 	background-color: lightslategrey;
     width: fit-content;
+	width: -moz-fit-content;
     padding: 10px;
     border-radius: 15px;
     border: 2px solid rgb(51 204 255 / 50%);
