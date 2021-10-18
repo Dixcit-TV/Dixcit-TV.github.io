@@ -168,3 +168,7 @@ footer {
     right: 0;
 	z-index: 999;
 }
+
+.VideoContent iframe {
+	max-width: 100%;
+}
