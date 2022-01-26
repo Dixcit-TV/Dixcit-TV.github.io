@@ -31,11 +31,11 @@
 		In turn, I want to present in this article, my own attempt at implementing a C++/DirectCompute based Software Rasterizer using DX11. This implementation should be able to perform on any DX11 capable hardware and not be limited by the output resolution.
 	</p>
 
-    <h3>CompuRaster</h3>
+	<h3>CompuRaster</h3>
 
-    <p class="mb-5"/>
+	<p class="mb-5" />
 
-    <h4>The "naïve" approach</h4>
+	<h4>The "naïve" approach</h4>
 
 	<p class="mb-5">
 		A first approach explored to implement CompuRaster was to emulate FreePipe’s behaviour as a single mega kernel where the complete pipeline is scheduled on a per triangle basis. The compute shader is configured to use the maximum allowed thread (1024 with DX11) and the dispatch size is calculated according to the number of triangles to provide one triangle per thread.<br /><br />
@@ -91,9 +91,11 @@
 		Each scene was also rendered in 1080p and 720p resolutions. The average FPS of each test can be found on the table below.
 	</p>
 
-	<img src="../../img/Vehicle.png" title="Vehicle scene" alt="Vehicle scene" width="30%" style="margin:10px; border: 3px solid white;" />
-	<img src="../../img/Bunny.png" title="Stanford Bunny scene" alt="Stanford Bunny scene" width="30%" style="margin:10px; border: 3px solid white;" />
-	<img src="../../img/FairyForest.png" title="Fairy Forest scene" alt="Fairy Forest scene" width="30%" style="margin:10px; border: 3px solid white;" />
+    <p>
+        <img src="../../img/Vehicle.png" title="Vehicle scene" alt="Vehicle scene" width="30%" style="margin:10px; border: 3px solid lightslategray;" />
+        <img src="../../img/Bunny.png" title="Stanford Bunny scene" alt="Stanford Bunny scene" width="30%" style="margin:10px; border: 3px solid lightslategray;" />
+        <img src="../../img/FairyForest.png" title="Fairy Forest scene" alt="Fairy Forest scene" width="30%" style="margin:10px; border: 3px solid lightslategray;" />
+    </p>
 
 	<img src="../../img/Test1_Results.png" title="CompuRaster - Overall rasterization power" alt="CompuRaster - Overall rasterization power" />
 
@@ -108,18 +110,18 @@
 
 	<p>
 		<strong>Vehicle Close-up / Vehicle Far shot</strong><br />
-		<img src="../../img/Vehicle_Close.png" title="Vehicle scene close-up" alt="Vehicle scene" width="30%" style="margin: 10px; border: 3px solid white;" />
-		<img src="../../img/Vehicle_Far.png" title="Vehicle scene far shot" alt="Vehicle scene far shot" width="30%" style="margin: 10px; border: 3px solid white;" />
+		<img src="../../img/Vehicle_Close.png" title="Vehicle scene close-up" alt="Vehicle scene" width="30%" style="margin: 10px; border: 3px solid lightslategray;" />
+		<img src="../../img/Vehicle_Far.png" title="Vehicle scene far shot" alt="Vehicle scene far shot" width="30%" style="margin: 10px; border: 3px solid lightslategray;" />
 	</p>
 	<p>
 		<strong>Bunny Close-up / Bunny Far shot</strong><br />
-		<img src="../../img/Bunny_Close.png" title="Stanford Bunny scene close-up" alt="Fairy Forest scene" width="30%" style="margin: 10px; border: 3px solid white;" />
-		<img src="../../img/Bunny_Far.png" title="Stanford Bunny scene far shot" alt="Stanford Bunny scene close-up" width="30%" style="margin: 10px; border: 3px solid white;" />
+		<img src="../../img/Bunny_Close.png" title="Stanford Bunny scene close-up" alt="Fairy Forest scene" width="30%" style="margin: 10px; border: 3px solid lightslategray;" />
+		<img src="../../img/Bunny_Far.png" title="Stanford Bunny scene far shot" alt="Stanford Bunny scene close-up" width="30%" style="margin: 10px; border: 3px solid lightslategray;" />
 	</p>
 	<p>
 		<strong>Fairy Forest Close-up / Fairy Forest Far shot</strong><br />
-		<img src="../../img/Fairy_Close.png" title="Fairy Forest scene close-up" alt="Fairy Forest scene close-up" width="30%" style="margin: 10px; border: 3px solid white;" />
-		<img src="../../img/Fairy_Far.png" title="Fairy Forest scene far shot" alt="Fairy Forest scene far shot" width="30%" style="margin: 10px; border: 3px solid white;" />
+		<img src="../../img/Fairy_Close.png" title="Fairy Forest scene close-up" alt="Fairy Forest scene close-up" width="30%" style="margin: 10px; border: 3px solid lightslategray;" />
+		<img src="../../img/Fairy_Far.png" title="Fairy Forest scene far shot" alt="Fairy Forest scene far shot" width="30%" style="margin: 10px; border: 3px solid lightslategray;" />
 	</p>
 
 	<img src="../../img/Test2_Results.png" title="CompuRaster - Overall rasterization power" alt="CompuRaster - Overall rasterization power" />
