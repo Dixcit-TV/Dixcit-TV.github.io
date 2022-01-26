@@ -14,6 +14,7 @@
 	</p>
 
 	<h3>Some context</h3>
+	<p class="mb-5" />
 	<h4>Brief history</h4>
 
 	<p class="mb-5">
@@ -32,10 +33,8 @@
 	</p>
 
 	<h3>CompuRaster</h3>
-
-	<p class="mb-5" />
-
-	<h4>The "naïve" approach</h4>
+    <p class="mb-5" />
+    <h4>The "naïve" approach</h4>
 
 	<p class="mb-5">
 		A first approach explored to implement CompuRaster was to emulate FreePipe’s behaviour as a single mega kernel where the complete pipeline is scheduled on a per triangle basis. The compute shader is configured to use the maximum allowed thread (1024 with DX11) and the dispatch size is calculated according to the number of triangles to provide one triangle per thread.<br /><br />
@@ -87,15 +86,15 @@
 	</p>
 
 	<p class="mb-5">
-		To identify the overall rasterization power of CompuRaster, three scenes (vehicle mesh, the stanford bunny and a fairy forest scene borrowed from cuRe) were tested against the hardware pipeline, the naive version of CompuRaster as well as the binning version of CompuRaster.<br /><br />
+		To identify the overall rasterization power of CompuRaster, three scenes (vehicle mesh, the stanford bunny and a fairy forest scene borrowed from cuRe) were tested against the hardware pipeline, the naive version of CompuRaster as well as the binning version of CompuRaster.<br />
 		Each scene was also rendered in 1080p and 720p resolutions. The average FPS of each test can be found on the table below.
 	</p>
 
-    <p>
-        <img src="../../img/Vehicle.png" title="Vehicle scene" alt="Vehicle scene" width="30%" style="margin:10px; border: 3px solid lightslategray;" />
-        <img src="../../img/Bunny.png" title="Stanford Bunny scene" alt="Stanford Bunny scene" width="30%" style="margin:10px; border: 3px solid lightslategray;" />
-        <img src="../../img/FairyForest.png" title="Fairy Forest scene" alt="Fairy Forest scene" width="30%" style="margin:10px; border: 3px solid lightslategray;" />
-    </p>
+	<p>
+		<img src="../../img/Vehicle.png" title="Vehicle scene" alt="Vehicle scene" width="30%" style="margin:10px; border: 3px solid lightslategray;" />
+		<img src="../../img/Bunny.png" title="Stanford Bunny scene" alt="Stanford Bunny scene" width="30%" style="margin:10px; border: 3px solid lightslategray;" />
+		<img src="../../img/FairyForest.png" title="Fairy Forest scene" alt="Fairy Forest scene" width="30%" style="margin:10px; border: 3px solid lightslategray;" />
+	</p>
 
 	<img src="../../img/Test1_Results.png" title="CompuRaster - Overall rasterization power" alt="CompuRaster - Overall rasterization power" />
 
@@ -105,7 +104,7 @@
 	</p>
 
 	<p class="mb-5">
-		Another test configuration that can be significantly relevant is rendering with different views, changing the screen coverage. Close range render provides insights on how the implementation performs when a large number of the triangles are culled out and online few covers the viewport. While a long range render on the other hand shows if the pipeline takes advantage of the smaller triangle to pixel ratio or of the large empty spaces to increase frame time.
+		Another test configuration that can be significantly relevant is rendering with different views, changing the screen coverage. Close range render provides insights on how the implementation performs when a large number of the triangles are culled out and only few covers the viewport. While a long range render on the other hand shows if the pipeline takes advantage of the smaller triangle to pixel ratio or of the large empty spaces to increase frame time.
 	</p>
 
 	<p>
