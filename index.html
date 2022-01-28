@@ -441,7 +441,7 @@ http://www.tooplate.com/view/2102-constructive
                 {
                     $("#tmNavLink2").trigger('click');
 					loadProject(searchParams.get("project"));
-                    history.pushState({}, "", "https://dixcit-tv.github.io/");
+                    history.replaceState({}, "", window.location.origin);
                 }
 
                 $(".ProjectBtn").click(function(e){
