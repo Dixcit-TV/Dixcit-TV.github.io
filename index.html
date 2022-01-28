@@ -383,7 +383,22 @@ http://www.tooplate.com/view/2102-constructive
 			$("#ProjectDetailContent").hide();
 		}
 
-  		// Everything is loaded including images.
+        function loadProject(projectHtlm)
+        {
+            var projectFolder = "./pages/projects/";		
+
+            var detailContent = $("#ProjectDetailContent");
+
+            if (projectHtlm && projectHtlm != "#")
+            {
+                $("#ProjectMainContent").hide();
+                var contentFile = projectFolder + projectHtlm;
+                $(detailContent).fadeIn(1000);
+                $(detailContent).load(contentFile);
+            }
+        }
+
+        // Everything is loaded including images.
       	$(window).on("load", function(){
 
       		// Render the page on modern browser only.
@@ -420,23 +435,21 @@ http://www.tooplate.com/view/2102-constructive
 		     	// Setup Carousel, Nav, and Nav Toggle
 			    setupNav();
 			    setupNavToggle();
-				
-				$(".ProjectBtn").click(function(e){
-					e.preventDefault();
-			
-					var projectFolder = "./pages/projects/";		
 
-					var detailContent = $("#ProjectDetailContent");
-					var detailPageName = $(this).attr("href");
-					
-					if (detailPageName != "#")
-					{
-						$("#ProjectMainContent").hide();
-						var contentFile = projectFolder + detailPageName;
-						$(detailContent).fadeIn(1000);
-						$(detailContent).load(contentFile);
-					}
-				});	 
+                var searchParams = new URLSearchParams(window.location.search);
+				if (searchParams.has("project"))
+                {
+                    $("#tmNavLink2").trigger('click');
+					loadProject(searchParams.get("project"));
+                    //alert(searchParams.get("project"));
+                    history.pushState({}, "", "index.html");
+                }
+
+                $(".ProjectBtn").click(function(e){
+					e.preventDefault();
+
+                    loadProject($(this).attr("href"));
+                });	 
       		}	      	
 		});
 

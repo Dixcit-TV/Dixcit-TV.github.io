@@ -74,7 +74,7 @@
 
 	<p class="mb-5">
 		Once all the triangles are queued in their respective bins, a coarse rasterization stage is dispatched to compute the tile coverage of triangles per bins. Each bin is assigned to a thread group, 128 threads each (128 seemed to provide the best overall performance). To collect all the triangles across all the generated per bin queues and output a packed list, each thread uses its ID and the stored per-queue triangle count to find their next dedicated triangle and calculate an ordered packed output index to store a structure holding the triangle tile coverage 64 bits mask as well as the triangle index. The total count of triangles per bin is also stored in a 1D representation of screen bins in global memory. It is necessary as the tile coverage buffer generated on the stage suffers from the same memory inefficiency as the output buffer from the bin rasterizer and uses a much larger buffer than needed. The stored triangle count is used to limit the amount of memory fetch required to process all triangles in the Fine rasterizer or early exit if the bin is empty.<br /><br />
-		<img src="../../img/TileRasterizer.png" title="CompuRaster - Bin Rasterization" alt="CompuRaster - Bin Rasterization" width="40%"/>
+		<img src="../../img/TileRasterizer.png" title="CompuRaster - Bin Rasterization" alt="CompuRaster - Bin Rasterization" width="70%"/>
 	</p>
 
 	<h5>Fine Rasterization</h5>
