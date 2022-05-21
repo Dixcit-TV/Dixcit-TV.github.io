@@ -120,7 +120,7 @@ http://www.tooplate.com/view/2102-constructive
 							<h2 class="tm-text-shadow">Little bit of backstory...</h2>
 							<p class="mb-5">Playing video games as a teenager grew my curiosity towards programming. All those virtual worlds, stories, mechanics, etc... were fascinating and I was imagining being able to do the same, create intricates virtual adventures people across the globe would enjoy and get inspired by.</p>
 							
-							<p class="mb-5">I started my journey as a programmer by following and graduating a Bachelor in Software Development. After 3,5 years working as a software developer on automated property management solutions for servicers, I was assured that I picked the right carrier path but didn't feel that I was currently in the right industry as I didn't relate to it or felt invested in the product.</br>
+                            <p class="mb-5">I started my journey as a programmer by following and graduating a Bachelor in Software Development. After 3,5 years working as a software developer on automated property management solutions for servicers, I was assured that I picked the right carrier path but didn't feel that I was currently in the right industry as I didn't relate to it or felt invested in the product.<br/>
 							This led me to decide to specialize in the industry that grew my curiosity to programming: the gaming industry; and enrol for Digital Arts and Entertainment.</p>
 							
 						</div>
@@ -223,7 +223,7 @@ http://www.tooplate.com/view/2102-constructive
 												<td> 
 													<h3>Research: Theta* vs A*</h3>
 													<p class="ProjectText">
-														For the final project of my AI programming course, I decided to investigate a "new" path-finding algorithm (as I already experienced BFS, DFS and A*) and then compare it to the almighty A*. For this I then picked Theta* as it seemed, after some readings, to be a greater contender. The comaprison was based on an undirected grid graph.
+														For the final project of my AI programming course, I decided to investigate a "new" path-finding algorithm (as I already experienced BFS, DFS and A*) and then compare it to the almighty A*. For this I then picked Theta* as it seemed, after some readings, to be a great contender. The comparison was based on an undirected grid graph.
 													</p>
 												</td>
 											</tr>
@@ -244,7 +244,7 @@ http://www.tooplate.com/view/2102-constructive
 												<td> 
 													<h3>SOFTWARE RASTERIZER MEETS DX11</h3>
 													<p class="ProjectText">
-														After being introduced to rasterizing by developing a software rasterizer then a hardware rasterizer using DX11 (with Effects framework), my final Graphics programming 1 project was to merge them in one project allowing to switch between them at runtime. Each rasterizer having to handle basic features such as culling modes, transparency, diffuse and specular shading, and normal mapping.
+														After being introduced to rasterization by developing a software rasterizer then a hardware rasterizer using DX11 (with Effects framework), my final Graphics programming 1 project was to merge them in one project allowing to switch between them at runtime. Each rasterizer having to handle basic features such as culling modes, transparency, diffuse and specular shading, and normal mapping.
 													</p>
 												</td>
 											</tr>
@@ -383,7 +383,22 @@ http://www.tooplate.com/view/2102-constructive
 			$("#ProjectDetailContent").hide();
 		}
 
-  		// Everything is loaded including images.
+        function loadProject(projectHtlm)
+        {
+            var projectFolder = "./pages/projects/";		
+
+            var detailContent = $("#ProjectDetailContent");
+
+            if (projectHtlm && projectHtlm != "#")
+            {
+                $("#ProjectMainContent").hide();
+                var contentFile = projectFolder + projectHtlm;
+                $(detailContent).fadeIn(1000);
+                $(detailContent).load(contentFile);
+            }
+        }
+
+        // Everything is loaded including images.
       	$(window).on("load", function(){
 
       		// Render the page on modern browser only.
@@ -420,23 +435,20 @@ http://www.tooplate.com/view/2102-constructive
 		     	// Setup Carousel, Nav, and Nav Toggle
 			    setupNav();
 			    setupNavToggle();
-				
-				$(".ProjectBtn").click(function(e){
-					e.preventDefault();
-			
-					var projectFolder = "./pages/projects/";		
 
-					var detailContent = $("#ProjectDetailContent");
-					var detailPageName = $(this).attr("href");
-					
-					if (detailPageName != "#")
-					{
-						$("#ProjectMainContent").hide();
-						var contentFile = projectFolder + detailPageName;
-						$(detailContent).fadeIn(1000);
-						$(detailContent).load(contentFile);
-					}
-				});	 
+                var searchParams = new URLSearchParams(window.location.search);
+				if (searchParams.has("project"))
+                {
+                    $("#tmNavLink2").trigger('click');
+					loadProject(searchParams.get("project"));
+                    history.replaceState({}, "", window.location.origin);
+                }
+
+                $(".ProjectBtn").click(function(e){
+					e.preventDefault();
+
+                    loadProject($(this).attr("href"));
+                });	 
       		}	      	
 		});
 
